@@ -1,201 +1,497 @@
-# Programacao Orientada a Objetos com Java
+<div align="center">
 
-Projeto desenvolvido para praticar os principais conceitos da Programacao Orientada a Objetos (POO) utilizando Java.
+# ☕ Programação Orientada a Objetos com Java
 
-Este repositorio e uma releitura em Java do projeto original feito em TypeScript:
+Reimplementação em Java de um projeto acadêmico originalmente desenvolvido em TypeScript, utilizando o mesmo domínio educacional para comparar conceitos, recursos e diferenças entre as linguagens.
 
-https://github.com/ONestoDev/poo-typescript/blob/index/README.md
+![Java](https://img.shields.io/badge/Java-POO-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)
+![JDK](https://img.shields.io/badge/JDK-21-007396?style=for-the-badge\&logo=openjdk\&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-IDE-000000?style=for-the-badge\&logo=intellijidea\&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Projeto_acadêmico-success?style=for-the-badge)
 
-A ideia foi manter a mesma proposta de estudo e o mesmo dominio escolar, mas reimplementar a modelagem usando recursos proprios da linguagem Java, como classes abstratas, interfaces, pacotes, heranca e compilacao com JDK.
-
----
-
-## Sobre o projeto
-
-O projeto representa um pequeno sistema academico em memoria, com entidades como:
-
-- Pessoa
-- Aluno
-- Professor
-- TecnicoAdministrativo
-- Bibliotecario
-- Psicologo
-- Campus
-- Curso
-- Endereco
-- Projeto
-
-O objetivo principal nao e criar um sistema completo de gestao escolar, mas praticar modelagem orientada a objetos e entender como os relacionamentos entre classes mudam quando o mesmo problema e implementado em outra linguagem.
+</div>
 
 ---
 
-## Comparacao com a versao TypeScript
+## 📌 Sobre o projeto
 
-| Aspecto | Versao TypeScript | Versao Java |
-| --- | --- | --- |
-| Linguagem | TypeScript | Java |
-| Execucao | Node.js e npm | JDK, javac e java |
-| Organizacao | Modulos TypeScript | Pacotes Java |
-| Tipagem | Estatica sobre JavaScript | Estatica nativa |
-| Classe base | Classes com heranca | Classes abstratas com heranca |
-| Contratos | Interfaces TypeScript | Interfaces Java |
-| Saida compilada | JavaScript | Bytecode `.class` |
-| Entrada do programa | Script executado via npm | Classe `Main` |
+Este projeto foi desenvolvido para praticar os principais conceitos da Programação Orientada a Objetos utilizando Java.
 
-Apesar das diferencas de sintaxe e ferramentas, os dois projetos trabalham a mesma base conceitual: representar objetos, organizar responsabilidades e aplicar os pilares da POO.
+A aplicação é uma releitura do projeto:
 
----
+[Programação Orientada a Objetos com TypeScript](https://github.com/ONestoDev/poo-typescript)
 
-## Conceitos abordados
+A proposta foi manter o mesmo domínio acadêmico e reimplementar sua modelagem utilizando recursos próprios do ecossistema Java, como:
 
-- Classes e objetos
-- Encapsulamento
-- Construtores
-- Heranca
-- Polimorfismo
-- Abstracao
-- Interfaces
-- Associacao
-- Agregacao
-- Composicao
-- Modificadores de acesso
-- Organizacao de codigo em pacotes Java
+* classes abstratas;
+* interfaces;
+* herança;
+* polimorfismo;
+* encapsulamento;
+* pacotes;
+* listas tipadas;
+* compilação com JDK;
+* execução pela JVM.
+
+O sistema funciona inteiramente em memória e possui finalidade educacional.
 
 ---
 
-## Tecnologias utilizadas
+## 🎯 Objetivos
 
-- Java
-- JDK 21
-- IntelliJ IDEA
+Os principais objetivos do projeto são:
 
-O projeto nao depende de bibliotecas externas.
+* praticar Programação Orientada a Objetos;
+* comparar Java e TypeScript;
+* modelar entidades de um domínio acadêmico;
+* aplicar herança e abstração;
+* utilizar interfaces;
+* organizar classes em pacotes;
+* trabalhar com coleções;
+* compreender compilação e execução em Java;
+* registrar a evolução técnica entre linguagens.
 
 ---
 
-## Estrutura do projeto
+## 🧠 Domínio modelado
+
+O projeto representa uma instituição de ensino simplificada.
+
+### Pessoa
+
+Classe base para entidades que representam pessoas.
+
+Especializações:
+
+* aluno;
+* professor;
+* técnico administrativo.
+
+### Aluno
+
+Representa um estudante associado a cursos e endereços.
+
+### Professor
+
+Representa um professor vinculado a um campus.
+
+### Técnico administrativo
+
+Classe abstrata utilizada como base para funcionários administrativos.
+
+Especializações:
+
+* bibliotecário;
+* psicólogo.
+
+### Curso
+
+Classe abstrata utilizada para representar diferentes modalidades.
+
+Especializações:
+
+* curso integrado;
+* curso subsequente.
+
+### Campus
+
+Representa uma unidade acadêmica responsável por agrupar:
+
+* alunos;
+* professores;
+* cursos;
+* técnicos administrativos;
+* endereço.
+
+### Endereço
+
+Representa as informações de localização utilizadas pelas demais entidades.
+
+### Projeto
+
+Interface utilizada para definir contratos comuns entre determinadas classes.
+
+---
+
+## 🧩 Conceitos de POO aplicados
+
+### Classes e objetos
+
+Cada elemento do domínio é representado por uma classe.
+
+```java
+CursoSubsequente curso = new CursoSubsequente(
+    "Informática",
+    1200,
+    true
+);
+```
+
+### Encapsulamento
+
+Os atributos são privados e acessados por métodos públicos.
+
+```java
+private String nome;
+
+public String getNome() {
+    return nome;
+}
+
+public void setNome(String nome) {
+    this.nome = nome;
+}
+```
+
+### Herança
 
 ```text
-.
-|-- src/
-|   |-- Main.java
-|   |-- Aluno/
-|   |   `-- Aluno.java
-|   |-- Campus/
-|   |   `-- Campus.java
-|   |-- Curso/
-|   |   |-- Curso.java
-|   |   |-- CursoIntegrado.java
-|   |   `-- CursoSubsequente.java
-|   |-- Endereco/
-|   |   `-- Endereco.java
-|   |-- Pessoa/
-|   |   `-- Pessoa.java
-|   |-- Professor/
-|   |   `-- Professor.java
-|   |-- Projeto/
-|   |   `-- Projeto.java
-|   `-- TecnicoAdministrativo/
-|       |-- TecnicoAdministrativo.java
-|       |-- Bibliotecario.java
-|       `-- Psicologo.java
-|-- out/
-`-- README.md
+Pessoa
+├── Aluno
+├── Professor
+└── TecnicoAdministrativo
+    ├── Bibliotecario
+    └── Psicologo
+```
+
+Também existe herança entre cursos:
+
+```text
+Curso
+├── CursoIntegrado
+└── CursoSubsequente
+```
+
+### Abstração
+
+Classes abstratas representam conceitos gerais que não devem ser instanciados diretamente.
+
+Exemplos:
+
+* `Pessoa`;
+* `Curso`;
+* `TecnicoAdministrativo`.
+
+### Interfaces
+
+A interface `Projeto` define comportamentos que podem ser implementados por classes do domínio.
+
+### Associação
+
+Objetos mantêm referências a outras entidades.
+
+Exemplos:
+
+* professor associado a um campus;
+* aluno associado a cursos;
+* pessoa associada a endereços.
+
+### Agregação
+
+O campus agrupa professores, alunos, cursos e técnicos administrativos.
+
+Esses objetos podem existir independentemente do campus.
+
+### Polimorfismo
+
+Subclasses podem ser tratadas por seus tipos mais gerais.
+
+Exemplo:
+
+```java
+List<Curso> cursos = List.of(
+    new CursoIntegrado("Eletrotécnica", 3200, true),
+    new CursoSubsequente("Informática", 1200, true)
+);
 ```
 
 ---
 
-## Como executar o projeto
+## 🔄 Relacionamentos principais
 
-### Compile os arquivos Java
+```mermaid
+classDiagram
+    Pessoa <|-- Aluno
+    Pessoa <|-- Professor
+    Pessoa <|-- TecnicoAdministrativo
 
-Na raiz do projeto:
+    TecnicoAdministrativo <|-- Bibliotecario
+    TecnicoAdministrativo <|-- Psicologo
+
+    Curso <|-- CursoIntegrado
+    Curso <|-- CursoSubsequente
+
+    Pessoa "1" --> "*" Endereco
+    Aluno "*" --> "*" Curso
+    Campus "1" --> "*" Aluno
+    Campus "1" --> "*" Professor
+    Campus "1" --> "*" Curso
+    Campus "1" --> "*" TecnicoAdministrativo
+```
+
+---
+
+## 📁 Estrutura do projeto
+
+```text
+Projeto-poo-typescript-Feito-em-Java/
+│
+├── poo-typescript/
+│   ├── src/
+│   │   ├── Aluno/
+│   │   │   └── Aluno.java
+│   │   ├── Campus/
+│   │   │   └── Campus.java
+│   │   ├── Curso/
+│   │   │   ├── Curso.java
+│   │   │   ├── CursoIntegrado.java
+│   │   │   └── CursoSubsequente.java
+│   │   ├── Endereco/
+│   │   │   └── Endereco.java
+│   │   ├── Pessoa/
+│   │   │   └── Pessoa.java
+│   │   ├── Professor/
+│   │   │   └── Professor.java
+│   │   ├── Projeto/
+│   │   │   └── Projeto.java
+│   │   ├── TecnicoAdministrativo/
+│   │   │   ├── TecnicoAdministrativo.java
+│   │   │   ├── Bibliotecario.java
+│   │   │   └── Psicologo.java
+│   │   └── Main.java
+│   └── out/
+│
+└── README.md
+```
+
+---
+
+## 🛠️ Tecnologias
+
+| Tecnologia    | Aplicação                   |
+| ------------- | --------------------------- |
+| Java          | Linguagem principal         |
+| JDK 21        | Compilação e execução       |
+| IntelliJ IDEA | Ambiente de desenvolvimento |
+| Git           | Controle de versão          |
+| GitHub        | Hospedagem e documentação   |
+
+O projeto não utiliza bibliotecas externas.
+
+---
+
+## 🚀 Como executar
+
+### Pré-requisitos
+
+É necessário possuir:
+
+* JDK 21 ou superior;
+* Git;
+* terminal ou uma IDE Java.
+
+Verifique a instalação:
+
+```bash
+java --version
+```
+
+```bash
+javac --version
+```
+
+### Clone o repositório
+
+```bash
+git clone https://github.com/ONestoDev/Projeto-poo-typescript-Feito-em-Java.git
+```
+
+### Acesse o projeto
+
+```bash
+cd Projeto-poo-typescript-Feito-em-Java/poo-typescript
+```
+
+### Compile no Linux ou macOS
+
+```bash
+javac -d out $(find src -name "*.java")
+```
+
+### Compile no PowerShell
 
 ```powershell
 javac -d out (Get-ChildItem -Recurse -Filter *.java -Path src | ForEach-Object { $_.FullName })
 ```
 
-Caso o `javac` nao esteja no PATH, use o caminho completo do JDK instalado. Exemplo:
+### Execute
 
-```powershell
-& 'C:\Users\ONestoGamer\.jdks\ms-21.0.11\bin\javac.exe' -d out (Get-ChildItem -Recurse -Filter *.java -Path src | ForEach-Object { $_.FullName })
-```
-
-### Execute a classe principal
-
-```powershell
+```bash
 java -cp out Main
-```
-
-Ou, usando o caminho completo do JDK:
-
-```powershell
-& 'C:\Users\ONestoGamer\.jdks\ms-21.0.11\bin\java.exe' -cp out Main
 ```
 
 ---
 
-## Exemplo de saida
+## 🧪 Exemplo de execução
+
+O programa principal cria:
+
+* dois endereços;
+* três cursos;
+* um campus;
+* um professor;
+* um bibliotecário;
+* um psicólogo.
+
+Depois, as entidades são associadas ao campus e exibidas no terminal.
+
+Exemplo aproximado:
 
 ```text
-Professor{matricula=89409093, nome='Luis Gomes', salario=5000.0, campusLotacao='Campus Aracaju'}
-Campus{nome='Campus Aracaju', ...}
-Bibliotecario{matricula=7719, nome='Ana Souza', cargo='Bibliotecario', setor='Biblioteca'}
-Psicologo{matricula=3846, nome='Carlos Lima', cargo='Psicologo', areaAtuacao='Atendimento estudantil'}
+Professor{matricula=89409093, nome='Luis Gomes', salario=5000.0}
+Campus{nome='Campus Aracaju', quantidadeAlunos=0}
+Bibliotecario{nome='Ana Souza', setor='Biblioteca'}
+Psicologo{nome='Carlos Lima', areaAtuacao='Atendimento estudantil'}
 ----------------------------------
 3
 ```
 
-Os numeros de matricula podem mudar a cada execucao, pois sao gerados automaticamente.
+Os números de matrícula podem variar porque são gerados automaticamente.
 
 ---
 
-## Objetivos de aprendizado
+## 🆚 Comparação com TypeScript
 
-Este projeto foi feito para fortalecer conhecimentos em:
+| Aspecto           | TypeScript                 | Java               |
+| ----------------- | -------------------------- | ------------------ |
+| Execução          | Node.js                    | JVM                |
+| Compilação        | TypeScript para JavaScript | Java para bytecode |
+| Gerenciamento     | npm                        | JDK                |
+| Organização       | Módulos                    | Pacotes            |
+| Tipagem           | Estática sobre JavaScript  | Estática nativa    |
+| Classe base       | Classes e abstrações       | Classes abstratas  |
+| Contratos         | Interfaces TypeScript      | Interfaces Java    |
+| Arquivo principal | `index.ts`                 | `Main.java`        |
 
-- Programacao Orientada a Objetos em Java
-- Comparacao entre implementacoes em TypeScript e Java
-- Uso de classes abstratas
-- Uso de interfaces
-- Heranca entre classes
-- Modelagem de entidades de dominio
-- Organizacao de pacotes
-- Compilacao e execucao com JDK
+Apesar das diferenças, os dois projetos trabalham os mesmos fundamentos:
 
----
-
-## Principais diferencas percebidas
-
-Na versao TypeScript, a execucao depende do ecossistema Node.js e da configuracao do `package.json` e `tsconfig.json`.
-
-Na versao Java, o foco muda para a estrutura de pacotes, compilacao com `javac`, geracao de arquivos `.class` e execucao pela JVM.
-
-Outro ponto importante e que Java exige maior rigor nas assinaturas de construtores, nos tipos das listas e na relacao entre classes abstratas e subclasses. Isso ajuda a treinar melhor a consistencia da modelagem.
+* modelagem;
+* responsabilidades;
+* encapsulamento;
+* reutilização;
+* relacionamentos entre objetos.
 
 ---
 
-## Roadmap
+## ✅ Pontos fortes
 
-- [x] Recriar o dominio do projeto TypeScript em Java
-- [x] Implementar classes principais
-- [x] Implementar heranca com `Pessoa`
-- [x] Implementar interface `Projeto`
-- [x] Implementar classe abstrata `TecnicoAdministrativo`
-- [x] Compilar e executar a classe `Main`
-- [ ] Adicionar exemplos com `Aluno`
-- [ ] Criar testes automatizados
-- [ ] Normalizar nomes de pacotes para o padrao Java em letras minusculas
-- [ ] Adicionar mais regras de negocio
+O projeto demonstra:
 
----
-
-## Autor
-
-Desenvolvido por ONestoDev como exercicio de estudo em POO, comparando uma implementacao em TypeScript com uma implementacao em Java.
+* reimplementação de um mesmo domínio em duas linguagens;
+* uso de classes abstratas;
+* uso de interfaces;
+* herança;
+* polimorfismo;
+* listas tipadas;
+* separação por responsabilidade;
+* organização em pacotes;
+* métodos de inclusão em coleções;
+* sobrescrita de `toString`;
+* compilação manual com JDK.
 
 ---
 
-## Licenca
+## ⚠️ Limitações atuais
 
-Este projeto segue a mesma proposta de licenca do projeto original, licenciado sob MIT.
+O projeto ainda possui algumas limitações:
+
+* não possui testes automatizados;
+* não possui persistência;
+* não possui interface gráfica;
+* não possui banco de dados;
+* não possui validações robustas;
+* os pacotes utilizam nomes iniciados com letras maiúsculas;
+* os arquivos compilados podem estar versionados;
+* o projeto está dentro de uma pasta interna com nome do projeto original;
+* não utiliza Maven ou Gradle;
+* os dados de exemplo estão diretamente no `Main`.
+
+---
+
+## 🗺️ Melhorias futuras
+
+* normalizar pacotes para letras minúsculas;
+* mover o projeto para a raiz do repositório;
+* remover a pasta `out` do versionamento;
+* adicionar `.gitignore`;
+* criar testes com JUnit;
+* adicionar Maven ou Gradle;
+* validar dados de entrada;
+* criar enums para situações fixas;
+* impedir cadastros duplicados;
+* adicionar métodos de remoção;
+* separar dados de demonstração;
+* melhorar as regras de negócio;
+* documentar diferenças entre Java e TypeScript.
+
+---
+
+## 🧪 Testes recomendados
+
+| Cenário                | Resultado esperado    |
+| ---------------------- | --------------------- |
+| Criar campus válido    | Campus criado         |
+| Adicionar professor    | Professor incluído    |
+| Adicionar aluno        | Quantidade atualizada |
+| Adicionar curso        | Curso incluído        |
+| Nome vazio             | Entrada rejeitada     |
+| Carga horária negativa | Entrada rejeitada     |
+| Salário negativo       | Entrada rejeitada     |
+| Objeto duplicado       | Inclusão rejeitada    |
+
+---
+
+## 📚 Aprendizados desenvolvidos
+
+Durante o projeto foram praticados:
+
+* Java;
+* orientação a objetos;
+* classes;
+* objetos;
+* encapsulamento;
+* herança;
+* abstração;
+* interfaces;
+* polimorfismo;
+* composição;
+* agregação;
+* associação;
+* coleções;
+* pacotes;
+* compilação;
+* JVM.
+
+---
+
+## 🎓 Contexto educacional
+
+Este projeto foi desenvolvido como exercício de comparação entre uma implementação em TypeScript e sua reescrita em Java.
+
+A proposta não é construir um sistema acadêmico completo, mas compreender como a mesma modelagem pode ser adaptada entre diferentes linguagens.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Ernesto — ONestoDev**.
+
+[![GitHub](https://img.shields.io/badge/GitHub-ONestoDev-181717?style=for-the-badge\&logo=github)](https://github.com/ONestoDev)
+
+---
+
+## 📄 Licença
+
+O projeto pretende utilizar a licença MIT.
+
+Adicione um arquivo `LICENSE` na raiz do repositório para formalizar as condições de uso, modificação e distribuição.
